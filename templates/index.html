@@ -17,7 +17,7 @@
       <input id="distance" placeholder="How far away?">
       <input id="center"   placeholder="Where will we start?">
     </header>
-    
+
   <!-- ========= -->
   <!-- Libraries -->
   <!-- ========= -->
@@ -30,6 +30,15 @@
   <!-- Javascript code -->
   <!-- =============== -->
   <script type="text/javascript">
+    var app = {};
+
+    app.Area = Backbone.Model.extend({
+      defaults:{
+        category: '',
+        distance: '',
+        center: ''
+      }
+    });
     var AppView = Backbone.View.extend({
      // el - stands for element. Every view has a element associate in with HTML
      //      content will be rendered.
