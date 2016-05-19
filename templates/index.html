@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Hello World in Backbone.js</title>
+  <title>flight</title>
 </head>
 <body>
   <!-- ========= -->
@@ -13,10 +13,12 @@
   <section id="flightapp">
     <header id="header">
       <h1>flight</h1>
-      <input id="category" placeholder="What kind of place?">
-      <input id="distance" placeholder="How far away?">
-      <input id="center"   placeholder="Where will we start?">
-      <input type="button" id="enter_button" value="Enter">
+      <form action="." method="POST">
+        <input name="category" id="category" placeholder="What kind of place?">
+        <input name ="distance" id="distance" placeholder="How far away?">
+        <input name ="center" id="center"   placeholder="Where will we start?">
+        <input type="submit" name="my-form" id="enter_button" value="Enter">
+      </form>
     </header>
   </section>
 
@@ -46,12 +48,6 @@
      el: '#flightapp',
      initialize: function(){
        this.render();
-     },
-     events: {
-       "click input[type=button]": "doSearch"
-     },
-     doSearch: function(event){
-       alert("Category is: " + $("#category").val());
      }
    });
 
