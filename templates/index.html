@@ -16,7 +16,9 @@
       <input id="category" placeholder="What kind of place?">
       <input id="distance" placeholder="How far away?">
       <input id="center"   placeholder="Where will we start?">
+      <input type="button" id="enter_button" value="Enter">
     </header>
+  </section>
 
   <!-- ========= -->
   <!-- Libraries -->
@@ -39,23 +41,21 @@
         center: ''
       }
     });
-    var AppView = Backbone.View.extend({
-     // el - stands for element. Every view has a element associate in with HTML
-     //      content will be rendered.
-     el: $('#container'),
-     // It's the first function called when this view it's instantiated.
-     template: _.template("<h3>Hello <%= who %></h3>"),
+
+    app.AppView = Backbone.View.extend({
+     el: '#flightapp',
      initialize: function(){
        this.render();
      },
-     // $el - it's a cached jQuery object (el), in which you can use jQuery functions
-     //       to push content. Like the Hello World in this case.
-     render: function(){
-       this.$el.html(this.template({who: 'world!'}));
+     events: {
+       "click input[type=button]": "doSearch"
+     },
+     doSearch: function(event){
+       alert("Category is: " + $("#category").val());
      }
    });
 
-   var appView = new AppView();
+   app.appView = new app.AppView();
   </script>
 
 </body>
