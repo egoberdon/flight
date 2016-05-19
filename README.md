@@ -1,5 +1,10 @@
 # flight
 
+## Requirements
+
++ python
++ [Google Maps for Python] (https://github.com/googlemaps/google-maps-services-python google-maps-services-python)
+
 ## architecture
 + Flask - server side
 + BackboneJS - client side
