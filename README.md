@@ -1,5 +1,9 @@
 # flight
 
+## architecture
++ Flask - server side
++ BackboneJS - client side
+
 ## instructions
 + Download
 + cd into flight directory
