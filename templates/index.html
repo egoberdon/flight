@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Hello World in Backbone.js</title>
+</head>
+<body>
+  <!-- ========= -->
+  <!-- Your HTML -->
+  <!-- ========= -->
+
+  <section id="flightapp">
+    <header id="header">
+      <h1>flight</h1>
+      <input id="category" placeholder="What kind of place?">
+      <input id="distance" placeholder="How far away?">
+      <input id="center"   placeholder="Where will we start?">
+    </header>
+    
+  <!-- ========= -->
+  <!-- Libraries -->
+  <!-- ========= -->
+  <script src="underscore.js"></script>
+  <script src="jquery-2.2.3.js"></script>
+  <script src="backbone.js"></script>
+  <script src="backbone.localStorage.js"></script>
+
+  <!-- =============== -->
+  <!-- Javascript code -->
+  <!-- =============== -->
+  <script type="text/javascript">
+    var AppView = Backbone.View.extend({
+     // el - stands for element. Every view has a element associate in with HTML
+     //      content will be rendered.
+     el: $('#container'),
+     // It's the first function called when this view it's instantiated.
+     template: _.template("<h3>Hello <%= who %></h3>"),
+     initialize: function(){
+       this.render();
+     },
+     // $el - it's a cached jQuery object (el), in which you can use jQuery functions
+     //       to push content. Like the Hello World in this case.
+     render: function(){
+       this.$el.html(this.template({who: 'world!'}));
+     }
+   });
+
+   var appView = new AppView();
+  </script>
+
+</body>
+</html>
