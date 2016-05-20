@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/search.css">
   <title>flight</title>
 
 </head>
@@ -15,12 +16,24 @@
   <section id="flightapp">
     <header id="header">
       <h1>flight</h1>
-      <form action="." method="POST">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <input type="text" class="form-control SearchBar" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-defaul SearchButton" type="button">
+                  <span class=" glyphicon glyphicon-search SearchIcon" ></span>
+              </button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+      <!-- <form action="." method="POST">
         <input name="category" id="category" placeholder="What kind of place?">
         <input name ="distance" id="distance" placeholder="How far away?">
         <input name ="center" id="center"   placeholder="Where will we start?">
         <input type="submit" name="my-form" id="enter_button" value="Enter">
-      </form>
+      </form> -->
     </header>
   </section>
 
