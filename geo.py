@@ -13,21 +13,25 @@ def center():
     return (latitude, longitude)
 
 def places():
+    total = 0
     loc = center()
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='
     latitude = loc[0] #-33.86879
     longitude = loc[1] #151.194217
     distance  = '500'
     category = 'thai'
-    url = url + str(latitude) +',' + str(longitude) + '&radius=' + distance + '&keyword=' + category + '&key=' + getKey()
+    url = url + str(latitude) +',' + str(longitude) + '&rankBy=distance&radius=' + distance + '&keyword=' + category + '&key=' + getKey()
     response = urllib.urlopen(url)
     data = json.loads(response.read())
     for place in data['results']:
         print place['name']
         curLat = place['geometry']['location']['lat']
         curLng = place['geometry']['location']['lng']
-        print math.hypot(curLat - latitude, curLng - longitude)
-        print '\n'
+        distance = math.hypot(curLat - latitude, curLng - longitude)
+        total+= distance
+        print distance
         # print '\t' + str(place['geometry']['location']['lat'])
         # print '\t' + str(place['geometry']['location']['lng'])
+    print 'Total distance is: ' + str(total)
+    
 places()
