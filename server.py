@@ -10,8 +10,8 @@ def index():
 def result():
     category = request.form["category"]
     distance = request.form["distance"]
-    center   = request.form["center"]
-    return "Category is %s, Distance is %s, Center is %s." % (category, distance, center)
+    start   = request.form["start"]
+    return "Category is %s, Distance is %s, Start is %s." % (category, distance, start)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
