@@ -55,9 +55,11 @@
   <!-- Javascript code -->
   <!-- =============== -->
   <script type="text/javascript">
-    var app = {};
-
-    app.Area = Backbone.Model.extend({
+  window.App = {
+        Models: {},
+        Views: {}
+      };
+    App.Models.Area = Backbone.Model.extend({
       defaults:{
         category: '',
         distance: '',
@@ -65,14 +67,19 @@
       }
     });
 
-    app.AppView = Backbone.View.extend({
+    App.View = Backbone.View.extend({
      el: '#flightapp',
      initialize: function(){
        this.render();
+     },
+     events:{
+       'click .btn': "log",
+     },
+     log: function(){
+       console.log("search has been clicked");
      }
    });
-
-   app.appView = new app.AppView();
+  var appView = new App.View();
   </script>
 
 </body>
