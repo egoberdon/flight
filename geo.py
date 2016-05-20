@@ -1,4 +1,4 @@
-import googlemaps
+import googlemaps, urllib, json, math
 
 def getKey():
     with open('key', 'r') as f:
@@ -7,12 +7,27 @@ def getKey():
 
 def center():
     gmaps = googlemaps.Client(key=getKey())
-    geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
+    geocode_result = gmaps.geocode('134 West 26th Street, New York, NY 10001')
     latitude = geocode_result[0]['geometry']['location']['lat']
     longitude = geocode_result[0]['geometry']['location']['lng']
     return (latitude, longitude)
 
-def main():
-    print center()
-
-main()
+def places():
+    loc = center()
+    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='
+    latitude = loc[0] #-33.86879
+    longitude = loc[1] #151.194217
+    distance  = '500'
+    category = 'thai'
+    url = url + str(latitude) +',' + str(longitude) + '&radius=' + distance + '&keyword=' + category + '&key=' + getKey()
+    response = urllib.urlopen(url)
+    data = json.loads(response.read())
+    for place in data['results']:
+        print place['name']
+        curLat = place['geometry']['location']['lat']
+        curLng = place['geometry']['location']['lng']
+        print math.hypot(curLat - latitude, curLng - longitude)
+        print '\n'
+        # print '\t' + str(place['geometry']['location']['lat'])
+        # print '\t' + str(place['geometry']['location']['lng'])
+places()
