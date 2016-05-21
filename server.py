@@ -13,5 +13,9 @@ def result():
     start   = request.form["start"]
     return "Category is %s, Distance is %s, Start is %s." % (category, distance, start)
 
+@app.route('/results')
+def results():
+    return render_template('results.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
