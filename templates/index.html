@@ -77,7 +77,7 @@
        var start = $('#start').val();
        var area = {category: category, distance: distance, start: start};
        $.ajax({
-         url: '/',
+         url: '/result',
          data: $('form').serialize(),
          type: 'POST',
          data: area,
