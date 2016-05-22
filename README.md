@@ -8,13 +8,13 @@ to all matching locations in the given area.
 ### Home Page
 
 The home page has three text input boxes.
-  + The first one takes a type of place this would be something like "Thai" for Thai restaurants (this is loaded into the Google Places API as a keyword)
+  + The first one takes a type of place. This would be something like "Thai" for Thai restaurants (this is loaded into the Google Places API as a _keyword_)
   + The second input box takes a distance in miles (this is converted to meters for the Google Places API)
   + The third box takes a starting address like '125 E 11th St, New York, NY 10003' (this is geocoded using the Google Maps API, which returns the location to then be used by the Places API)
 
 ### Results
 
-The results page lists all the locations in order visited with the given address as the first location. The total distance for the entire flight is given. The units for this distance is in latitudes/longitudes which is
+The results page lists all the locations in order visited (plus their latitude and longitude). The address entered on the home page is listed as the first location. The total distance for the entire flight is given. The units for this distance is in latitudes/longitudes which is
 the result of the `math.hypot()` function that calculates the distance between points.
 
 ### Algorithmic Complexity
