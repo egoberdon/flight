@@ -1,3 +1,4 @@
-ol li.list-group {
+ol li.list-group-item {
+    list-style: decimal inside;
     display: list-item;
 }

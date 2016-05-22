@@ -69,10 +69,12 @@ def nearest_neighbor(start, locations, output, total):
         # print 'Locations in order visited:\n'
         conn = sql.connect('database.db')
         conn.execute("DROP TABLE IF EXISTS places") # only want to keep one set of results at a time
-        conn.execute("CREATE TABLE IF NOT EXISTS places (name TEXT)")
+        conn.execute("CREATE TABLE IF NOT EXISTS places (name TEXT, lat REAL, lng REAL)")
         for loc in output:
             name = str(loc[0])
-            conn.execute("INSERT INTO places (name) VALUES (?)", (name,))
+            lat = float(loc[1])
+            lng = float(loc[2])
+            conn.execute("INSERT INTO places (name, lat, lng) VALUES (?, ?, ?)", (name, lat, lng))
         conn.commit()
         conn.close()
     else:

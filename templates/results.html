@@ -14,10 +14,10 @@
   <!-- ========= -->
   <div align="center">
     <h1>results</h1>
-    <h2>total distance: </h2>
+    <h3>name (latitude, longitude) </h3>
      <ol class="list-group">
        {% for row in rows %}
-       <li class="list-group-item">{{row["name"]}}</li>
+       <li class="list-group-item">{{row["name"]}} ( {{row["lat"]}}, {{row["lng"]}})</li>
         {% endfor %}
     </ol>
     </div>
