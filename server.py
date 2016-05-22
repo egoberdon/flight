@@ -61,7 +61,7 @@ def places(category, distance, start_loc):
 
 '''
 recieves an array of 3-tuples where the first element is the one to compare against
-when array is length one return output array
+when array is length zero return output array
 '''
 def nearest_neighbor(start, locations, output, total):
     if len(locations) == 0:
