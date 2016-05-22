@@ -38,12 +38,13 @@ to find the nearest neighbor, nested in another O(N) to iterate through all loca
 ## Requirements
 
 + Python 2.7 or later
++ [Google Maps for Python] (https://github.com/googlemaps/google-maps-services-python google-maps-services-python)
 + Google API Key for both Maps and Places
 + All required js, css, and fonts files are located in the static folder
 
 ## Instructions
 + clone/download repo
-+ cd into flight directory
++ `cd flight` into root directory
 + make a file called key that contains only your Google API Key
 + run `python server.py` in terminal
 + go to http://127.0.0.1:8000/ to see home page
