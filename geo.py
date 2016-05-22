@@ -27,6 +27,7 @@ def places():
     for place in data['results']:
         curLat = place['geometry']['location']['lat']
         curLng = place['geometry']['location']['lng']
+        print place['name']
         current = (place['name'], curLat, curLng) #3-tuple of name latitude and location
         locations.append(current)
         #distance = math.hypot(curLat - latitude, curLng - longitude)
@@ -44,7 +45,7 @@ def nearest_neighbor(start, locations, output, total):
         print 'Total distance is: ' + str(total)
         print 'Locations in order visited:\n'
         for loc in output:
-            print loc[0]
+            print str(loc[0])
     else:
         lat = start[1]
         lng = start[2]

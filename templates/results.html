@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/results.css">
   <title>results</title>
 
 </head>
@@ -11,10 +12,16 @@
   <!-- ========= -->
   <!-- Your HTML -->
   <!-- ========= -->
-  <ul>Starting Point</ul>
-  <ul>Result 1</ul>
-  <ul>Result 2</ul>
-  <ul>Result 3</ul>
+  <div align="center">
+    <h1>results</h1>
+    <h2>total distance: </h2>
+     <ol class="list-group">
+       {% for row in rows %}
+       <li class="list-group-item">{{row["name"]}}</li>
+        {% endfor %}
+    </ol>
+    </div>
+  </table>
   <!-- ========= -->
   <!-- Libraries -->
   <!-- ========= -->

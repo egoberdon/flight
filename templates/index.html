@@ -69,16 +69,15 @@
        this.render();
      },
      events:{
-       'click .btn': "log",
+       'click .btn': "search",
      },
-     log: function(){
+     search: function(){
        var category = $('#category').val();
        var distance = $('#distance').val();
        var start = $('#start').val();
        var area = {category: category, distance: distance, start: start};
        $.ajax({
-         url: '/result',
-         data: $('form').serialize(),
+         url: '/input',
          type: 'POST',
          data: area,
          dataType: "text",
