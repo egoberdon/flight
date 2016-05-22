@@ -5,11 +5,11 @@
 }
 .SearchButton
 {
-    background-color:#ED1C24;
+    background-color:#00cc00;
     border-radius:1px;
 }
 .SearchButton:hover{
-    background-color:#C4161C;
+    background-color:#009900;
 }
 
 .SearchBar{
