@@ -1,6 +1,6 @@
 import sqlite3 as sql
 import googlemaps, urllib, json, math
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__, static_url_path='')
 
@@ -23,7 +23,7 @@ def process_input():
     distance = request.form["distance"]
     start   = request.form["start"]
     places(category, distance, start)
-    return "Category is %s, Distance is %s, Start is %s." % (category, distance, start)
+    return "Successfully processed, redirecting to results page"
 
 def getKey():
     with open('key', 'r') as f:
@@ -44,6 +44,7 @@ def places(category, distance, start_loc):
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='
     latitude = start[1]
     longitude = start[2]
+    distance = str(float(distance) * 1609.34 )# convert from miles to meters and type back as a string
     #distance  = '500'
     #category = 'thai'
     url = url + str(latitude) +',' + str(longitude) + '&rankBy=distance&radius=' + distance + '&keyword=' + category + '&key=' + getKey()

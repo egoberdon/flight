@@ -23,7 +23,7 @@
           <div class="col-6-lg-6">
             <div class="input-group">
               <input id= "category" type="text" class="form-control SearchBar" placeholder="What kind of place?">
-              <input id= "distance" type="text" class="form-control SearchBar" placeholder="How far away?">
+              <input id= "distance" type="text" class="form-control SearchBar" placeholder="How far away (in miles)?">
               <input id= "start" type="text" class="form-control SearchBar" placeholder="Where will we start?">
             </div><!-- /input-group -->
           </div><!-- /.col-6-lg-6 -->
@@ -83,6 +83,7 @@
          dataType: "text",
          success: function(response){
            console.log(response);
+           window.location = "/results";
          },
          error: function(error){
            console.log(error);
