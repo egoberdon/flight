@@ -57,7 +57,7 @@ def places(category, distance, start_loc):
     output = []
     output.append(start)
     total = 0 # total distance
-    return nearest_neighbor(start, locations, output, total)
+    nearest_neighbor(start, locations, output, total)
 
 '''
 recieves an array of 3-tuples where the first element is the one to compare against
@@ -65,7 +65,7 @@ when array is length one return output array
 '''
 def nearest_neighbor(start, locations, output, total):
     if len(locations) == 0:
-        return total
+        total
         # print 'Total distance is: ' + str(total)
         # print 'Locations in order visited:\n'
         conn = sql.connect('database.db')
