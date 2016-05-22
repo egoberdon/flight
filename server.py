@@ -65,7 +65,6 @@ when array is length one return output array
 '''
 def nearest_neighbor(start, locations, output, total):
     if len(locations) == 0:
-        total
         # print 'Total distance is: ' + str(total)
         # print 'Locations in order visited:\n'
         conn = sql.connect('database.db')
