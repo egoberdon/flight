@@ -23,7 +23,7 @@ Finding the shortest path as the crow flies to various locations is a manifestat
 Traveling Salesperson Problem (TSP).
 To approximate TSP I use the Nearest Neighbor Algorithm (_see the nearest_neighbor function in server.py_). The Nearest Neighbor algorithm is a simple and straightforward
 approximation that works relatively well. It recursively picks the nearest location to the start,
-sets that as the new location then repeats the process. The run-time for this implementation is O(N^2): O(N)
+sets that as the new starting location then repeats the process. The run-time for this implementation is O(N^2): O(N)
 to find the nearest neighbor, nested in another O(N) to iterate through all locations.
 
 ## Technologies
