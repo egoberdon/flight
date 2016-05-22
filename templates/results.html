@@ -14,13 +14,14 @@
   <!-- ========= -->
   <div align="center">
     <h1>results</h1>
-    <h3>name (latitude, longitude) </h3>
+  </div>
+  <div style="padding:12px">
      <ol class="list-group">
        {% for row in rows %}
        <li class="list-group-item">{{row["name"]}} ( {{row["lat"]}}, {{row["lng"]}})</li>
         {% endfor %}
     </ol>
-    </div>
+  </div>
   </table>
   <!-- ========= -->
   <!-- Libraries -->
