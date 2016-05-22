@@ -66,11 +66,10 @@ when array is length zero return output array
 '''
 def nearest_neighbor(start, locations, output, total):
     if len(locations) == 0:
-        # print 'Total distance is: ' + str(total)
-        # print 'Locations in order visited:\n'
         conn = sql.connect('database.db')
         conn.execute("DROP TABLE IF EXISTS places") # only want to keep one set of results at a time
-        conn.execute("CREATE TABLE IF NOT EXISTS places (name TEXT, lat REAL, lng REAL)")
+        conn.execute("CREATE TABLE IF NOT EXISTS places (name TEXT, lat REAL, lng REAL, total REAL)")
+        conn.execute("INSERT INTO places (name, total) VALUES (?, ?)", ("total", total)) #storing total distance to table
         for loc in output:
             name = str(loc[0])
             lat = float(loc[1])
