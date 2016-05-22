@@ -1,15 +1,16 @@
 .SearchIcon
 {
     color:#fff;
-
 }
 .SearchButton
 {
     background-color:#00cc00;
+    color: #ffffff;
     border-radius:1px;
 }
 .SearchButton:hover{
     background-color:#009900;
+    color: #ffffff;
 }
 
 .SearchBar{

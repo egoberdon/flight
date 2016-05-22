@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/results.css">
+  <link rel="stylesheet" href="css/search.css">
   <title>results</title>
 
 </head>
@@ -12,6 +13,7 @@
   <!-- ========= -->
   <!-- Your HTML -->
   <!-- ========= -->
+  <section id="resultapp">
   <div align="center">
     <h1>results</h1>
   </div>
@@ -21,13 +23,16 @@
        <li class="list-group-item">{{row["name"]}} ( {{row["lat"]}}, {{row["lng"]}})</li>
         {% endfor %}
     </ol>
+  </div>
+  <div align="center">
     <span class="input-group-btn">
       <button class="btn btn-defaul SearchButton" type="button">
-          <span class=" glyphicon glyphicon-search SearchIcon" ></span>
+          <span class=" glyphicon glyphicon-search SearchIcon" ></span> Another Search
         </button>
     </span>
   </div>
-  </table>
+</section>
+
   <!-- ========= -->
   <!-- Libraries -->
   <!-- ========= -->
@@ -40,6 +45,20 @@
   <!-- Javascript code -->
   <!-- =============== -->
   <script type="text/javascript">
+  var App = {}
+  App.View = Backbone.View.extend({
+   el: '#resultapp',
+   initialize: function(){
+     this.render();
+   },
+   events:{
+     'click .btn': "search",
+   },
+   search: function(){
+     window.location = "/";
+   }
+  });
+  var appView = new App.View();
   </script>
 
 </body>
