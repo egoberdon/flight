@@ -38,7 +38,7 @@ to find the nearest neighbor, nested in another O(N) to iterate through all loca
 ## Requirements
 
 + Python 2.7 or later
-+ [Google Maps for Python] (https://github.com/googlemaps/google-maps-services-python google-maps-services-python)
++ [Google Maps for Python] (https://github.com/googlemaps/google-maps-services-python)
 + Google API Key for both Maps and Places
 + All required js, css, and fonts files are located in the static folder
 
