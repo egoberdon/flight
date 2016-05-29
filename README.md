@@ -39,10 +39,20 @@ to find the nearest neighbor, nested in another O(N) to iterate through all loca
 
 + Python 2.7 or later
 + [Google Maps for Python] (https://github.com/googlemaps/google-maps-services-python google-maps-services-python)
++ [Geopy] (https://pypi.python.org/pypi/geopy geopy)
 + Google API Key for both Maps and Places
 + All required js, css, and fonts files are located in the static folder
 
 ## Instructions
+
+###Installing Requirements
++ Install pip
+  + `sudo apt-get install python-pip`
+  + Mac: `sudo easy_install pip`
++ `pip install geopy`
++ `pip install -U googlemaps`
+
+###Running Server
 + clone/download repo
 + `cd flight` into root directory
 + make a file called key that contains only your Google API Key
