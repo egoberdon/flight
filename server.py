@@ -1,5 +1,6 @@
 import sqlite3 as sql
-import googlemaps, urllib, json, math
+import googlemaps, urllib, json
+from geopy.distance import vincenty
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__, static_url_path='')
@@ -75,8 +76,8 @@ def nearest_neighbor(start, locations, output, total):
         conn = sql.connect('database.db')
         conn.execute("DROP TABLE IF EXISTS places") # only want to keep one set of results at a time, so clear if an old table is around
         conn.execute("CREATE TABLE IF NOT EXISTS places (name TEXT, lat REAL, lng REAL, total REAL)")
-        conn.execute("INSERT INTO places (name, total) VALUES (?, ?)", ("total", total)) #storing total distance to table
-        for loc in output: #type elements and add to array
+        conn.execute("INSERT INTO places (name, total) VALUES (?, ?)", ("total", total)) # storing total distance to table
+        for loc in output: # type elements and add to array
             name = str(loc[0])
             lat = float(loc[1])
             lng = float(loc[2])
@@ -84,21 +85,20 @@ def nearest_neighbor(start, locations, output, total):
         conn.commit()
         conn.close()
     else:
-        lat = start[1]
-        lng = start[2]
-        #set min_distance and min_index to first, item then check the others (if any exist)
-        min_distance = math.hypot(locations[0][1] - lat, locations[0][2] - lng) #start the min distance & index with the first item, which we know exists due to the base case check
+        start_coordinates = (start[1], start[2])
+        # set min_distance and min_index to first, item then check the others (if any exist)
+        current_coordinates = (locations[0][1], locations[0][2]) # start the index with the first item, which we know exists due to the base case check
+        min_distance = vincenty(start_coordinates, current_coordinates).miles # use Vincenty's formula to calculate distance
         min_index = 0
-        i = 1 #we've already checked the zero index, so we start at 1
+        i = 1 # we've already checked the zero index, so we start at 1
         while (i < len(locations)):
-            cur_lat = locations[i][1]
-            cur_lng = locations[i][2]
-            distance = math.hypot(cur_lat - lat, cur_lng - lng) #calculates distance between two points
-            if (distance < min_distance): #update min_index and min_distance if a new smallest distance has been found
+            current_coordinates = (locations[i][1], locations[i][2])
+            distance = vincenty(start_coordinates, current_coordinates).miles
+            if (distance < min_distance): # update min_index and min_distance if a new smallest distance has been found
                 min_index = i
                 min_distance = distance
             i += 1
-        total += min_distance #add the min_distance to the total distance, ensuring we only travel the shortes distance at every step
+        total += min_distance # add the min_distance to the total distance, ensuring we only travel the shortes distance at every step
         start = locations.pop(min_index) # remove the the min_index item from locations and set it to start
         output.append(start) # append the new start to the output array
         nearest_neighbor(start, locations, output, total) # recursively call the function
