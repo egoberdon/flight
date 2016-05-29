@@ -14,8 +14,7 @@ The home page has three text input boxes.
 
 ### Results
 
-The results page lists all the locations in order visited (plus their latitude and longitude). The address entered on the home page is listed as the first location. The total distance for the entire flight is given. The units for this distance is in latitudes/longitudes which is
-the result of the `math.hypot()` function that calculates the distance between points.
+The results page lists all the locations in order visited (plus their latitude and longitude). The address entered on the home page is listed as the first location. The total distance for the entire flight is given. The units for this distance is miles. Distances from each points are calculated by the (Vincenty formula) [https://en.wikipedia.org/wiki/Vincenty%27s_formulae]. 
 
 ### Algorithmic Complexity
 
