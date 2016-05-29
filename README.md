@@ -14,7 +14,7 @@ The home page has three text input boxes.
 
 ### Results
 
-The results page lists all the locations in order visited (plus their latitude and longitude). The address entered on the home page is listed as the first location. The total distance for the entire flight is given. The units for this distance is miles. Distances from each points are calculated by the (Vincenty formula) [https://en.wikipedia.org/wiki/Vincenty%27s_formulae]. 
+The results page lists all the locations in order visited (plus their latitude and longitude). The address entered on the home page is listed as the first location. The total distance for the entire flight is given in miles. Distances from each points are calculated by the [Vincenty formula] (https://en.wikipedia.org/wiki/Vincenty%27s_formulae).
 
 ### Algorithmic Complexity
 
@@ -37,8 +37,8 @@ to find the nearest neighbor, nested in another O(N) to iterate through all loca
 ## Requirements
 
 + Python 2.7 or later
-+ [Google Maps for Python] (https://github.com/googlemaps/google-maps-services-python google-maps-services-python)
-+ [Geopy] (https://pypi.python.org/pypi/geopy geopy)
++ [Google Maps for Python] (https://github.com/googlemaps/google-maps-services-python)
++ [Geopy] (https://pypi.python.org/pypi/geopy)
 + Google API Key for both Maps and Places
 + All required js, css, and fonts files are located in the static folder
 
